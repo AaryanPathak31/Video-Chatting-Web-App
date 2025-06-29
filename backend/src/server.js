@@ -11,17 +11,14 @@ import chatRoutes from "./routes/chat.route.js";
 import { connectDB } from "./lib/db.js";
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5001;
 
 const __dirname = path.resolve();
 
 app.use(
   cors({
-    origin: [
-    "http://localhost:5173",
-    "http://192.168.1.69:5173"
-  ],
-    credentials: true, // allow frontend to send cookies
+    origin: "http://localhost:5173", // Only allow localhost
+    credentials: true,
   })
 );
 

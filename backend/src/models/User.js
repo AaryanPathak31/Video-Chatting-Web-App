@@ -26,13 +26,13 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    nativeLanguage: {
-      type: String,
-      default: "",
+    hobbies: {
+      type: [String],
+      default: [],
     },
-    learningLanguage: {
-      type: String,
-      default: "",
+    interests: {
+      type: [String],
+      default: [],
     },
     location: {
       type: String,

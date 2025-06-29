@@ -1,4 +1,6 @@
-# Fullstack Chat & Video Calling App
+# Vibin
+
+A modern social chat app to connect with friends, share hobbies and interests, and chat in real time!
 
 Highlights:
 

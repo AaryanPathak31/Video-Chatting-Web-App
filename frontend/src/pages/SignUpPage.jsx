@@ -5,10 +5,12 @@ import { Link } from "react-router";
 import useSignUp from "../hooks/useSignUp";
 
 const SignUpPage = () => {
-  const [signupData, setSignupData] = useState({
+  const [signUpData, setSignUpData] = useState({
     fullName: "",
     email: "",
     password: "",
+    hobbies: "",
+    interests: "",
   });
 
   // This is how we did it at first, without using our custom hook
@@ -27,7 +29,7 @@ const SignUpPage = () => {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    signupMutation(signupData);
+    signupMutation(signUpData);
   };
 
   return (
@@ -42,7 +44,7 @@ const SignUpPage = () => {
           <div className="mb-4 flex items-center justify-start gap-2">
             <ShipWheelIcon className="size-9 text-primary" />
             <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
-              Streamify
+              Vibin
             </span>
           </div>
 
@@ -58,8 +60,8 @@ const SignUpPage = () => {
               <div className="space-y-4">
                 <div>
                   <h2 className="text-xl font-semibold">Create an Account</h2>
-                  <p className="text-sm opacity-70">
-                    Join Streamify and start your language learning adventure!
+                  <p className="text-sm opacity-70 mb-6 text-center">
+                    Join Vibin and start connecting with friends!
                   </p>
                 </div>
 
@@ -73,8 +75,13 @@ const SignUpPage = () => {
                       type="text"
                       placeholder="John Doe"
                       className="input input-bordered w-full"
-                      value={signupData.fullName}
-                      onChange={(e) => setSignupData({ ...signupData, fullName: e.target.value })}
+                      value={signUpData.fullName}
+                      onChange={(e) =>
+                        setSignUpData({
+                          ...signUpData,
+                          fullName: e.target.value,
+                        })
+                      }
                       required
                     />
                   </div>
@@ -87,8 +94,10 @@ const SignUpPage = () => {
                       type="email"
                       placeholder="john@gmail.com"
                       className="input input-bordered w-full"
-                      value={signupData.email}
-                      onChange={(e) => setSignupData({ ...signupData, email: e.target.value })}
+                      value={signUpData.email}
+                      onChange={(e) =>
+                        setSignUpData({ ...signUpData, email: e.target.value })
+                      }
                       required
                     />
                   </div>
@@ -101,8 +110,13 @@ const SignUpPage = () => {
                       type="password"
                       placeholder="********"
                       className="input input-bordered w-full"
-                      value={signupData.password}
-                      onChange={(e) => setSignupData({ ...signupData, password: e.target.value })}
+                      value={signUpData.password}
+                      onChange={(e) =>
+                        setSignUpData({
+                          ...signUpData,
+                          password: e.target.value,
+                        })
+                      }
                       required
                     />
                     <p className="text-xs opacity-70 mt-1">
@@ -112,13 +126,62 @@ const SignUpPage = () => {
 
                   <div className="form-control">
                     <label className="label cursor-pointer justify-start gap-2">
-                      <input type="checkbox" className="checkbox checkbox-sm" required />
+                      <input
+                        type="checkbox"
+                        className="checkbox checkbox-sm"
+                        required
+                      />
                       <span className="text-xs leading-tight">
                         I agree to the{" "}
-                        <span className="text-primary hover:underline">terms of service</span> and{" "}
-                        <span className="text-primary hover:underline">privacy policy</span>
+                        <span className="text-primary hover:underline">
+                          terms of service
+                        </span>{" "}
+                        and{" "}
+                        <span className="text-primary hover:underline">
+                          privacy policy
+                        </span>
                       </span>
                     </label>
+                  </div>
+
+                  <div className="form-control w-full">
+                    <label className="label">
+                      <span className="label-text">
+                        Hobbies (comma separated)
+                      </span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Hobbies (comma separated)"
+                      className="input input-bordered w-full"
+                      value={signUpData.hobbies}
+                      onChange={(e) =>
+                        setSignUpData({
+                          ...signUpData,
+                          hobbies: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+
+                  <div className="form-control w-full">
+                    <label className="label">
+                      <span className="label-text">
+                        Interests (comma separated)
+                      </span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Interests (comma separated)"
+                      className="input input-bordered w-full"
+                      value={signUpData.interests}
+                      onChange={(e) =>
+                        setSignUpData({
+                          ...signUpData,
+                          interests: e.target.value,
+                        })
+                      }
+                    />
                   </div>
                 </div>
 
@@ -151,13 +214,20 @@ const SignUpPage = () => {
           <div className="max-w-md p-8">
             {/* Illustration */}
             <div className="relative aspect-square max-w-sm mx-auto">
-              <img src="/i.png" alt="Language connection illustration" className="w-full h-full" />
+              <img
+                src="/i.png"
+                alt="Language connection illustration"
+                className="w-full h-full"
+              />
             </div>
 
             <div className="text-center space-y-3 mt-6">
-              <h2 className="text-xl font-semibold">Connect with language partners worldwide</h2>
+              <h2 className="text-xl font-semibold">
+                Connect with language partners worldwide
+              </h2>
               <p className="opacity-70">
-                Practice conversations, make friends, and improve your language skills together
+                Practice conversations, make friends, and improve your language
+                skills together
               </p>
             </div>
           </div>
